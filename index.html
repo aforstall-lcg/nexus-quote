@@ -34005,13 +34005,13 @@ var LNX = (function () {
     function tcell(text, w, o) { o = o || {}; return cell([para(run(text, o), { after: 0, align: o.align, line: 230 })], w, o); }
     var HO = { fill: NAVY, color: 'FFFFFF', bold: true, size: 15, align: D.AlignmentType.CENTER };
 
-    var selW = perE ? 620 * nE : 720, rangeW = 1500, estW = 1400, descW = CW - selW - rangeW - estW;
+    var selW = perE ? 620 * nE : 720, estW = 1400, descW = CW - selW - estW;
     var cols = []; if (perE) p.entities.forEach(function () { cols.push(620); }); else cols.push(720);
-    cols.push(descW, rangeW, estW);
+    cols.push(descW, estW);
     var hdr = [];
     if (perE) p.entities.forEach(function (e) { hdr.push(tcell(shortName(e.name, e), 620, HO)); }); else hdr.push(tcell('SELECT', 720, HO));
     hdr.push(tcell('SERVICE / DESCRIPTION', descW, { fill: NAVY, color: 'FFFFFF', bold: true, size: 15 }));
-    hdr.push(tcell('LOW \u2013 HIGH PRICING', rangeW, HO)); hdr.push(tcell('ESTIMATED PRICING', estW, HO));
+    hdr.push(tcell('ESTIMATED PRICING', estW, HO));
     var rows = [new D.TableRow({ children: hdr, tableHeader: true })];
     groups(p).forEach(function (g) {
       rows.push(new D.TableRow({ children: [tcell(g.name.toUpperCase(), CW, { fill: BLUE, color: 'FFFFFF', bold: true, size: 15, span: cols.length })] }));
@@ -34020,7 +34020,6 @@ var LNX = (function () {
         if (perE) p.entities.forEach(function (e) { var v = isSel(p, s.id, e.id); cells.push(tcell(v ? '\u2611' : '\u2610', 620, { fill: fill, size: 20, color: v ? BLUE : '9AA9B8', align: D.AlignmentType.CENTER })); });
         else cells.push(tcell(on ? '\u2611' : '\u2610', 720, { fill: fill, size: 20, color: on ? BLUE : '9AA9B8', align: D.AlignmentType.CENTER }));
         cells.push(cell([para(run(s.name + (s.unit === 'onetime' ? '  (one-time)' : ''), { bold: true, size: 18 }), { after: 0, line: 220 }), para(run(s.desc, { size: 14, color: GREY }), { after: 0, line: 210 })], descW, { fill: fill }));
-        cells.push(tcell(usd(s.low) + ' \u2013 ' + usd(s.high), rangeW, { fill: fill, size: 17, align: D.AlignmentType.CENTER }));
         var pe = perE ? p.entities : [p.entities[0] || { id: 'e1' }];
         var prices = pe.map(function (e) { return priceOf(p, s.id, e.id); });
         var uniq = prices.filter(function (v, i, a) { return a.indexOf(v) === i; });
