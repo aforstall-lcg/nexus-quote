@@ -132,6 +132,7 @@ table.menu td.name b{display:block;font-size:14px;font-weight:600;letter-spacing
 table.menu td.name span{display:block;font-size:12px;color:var(--muted);line-height:1.35;max-width:62ch}
 table.menu td.name em{font-style:normal;font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--blue);text-transform:uppercase;margin-left:6px}
 table.menu td.range{white-space:nowrap;color:var(--faint);font-size:12.5px;text-align:right;width:132px}
+table.menu .range{display:none}
 table.menu td.est{width:132px;text-align:right}
 table.menu td.est input{width:102px;text-align:right;font-weight:700;font-size:14px;color:var(--deep);border:1px solid transparent;background:transparent;border-radius:5px;padding:4px 6px}
 table.menu td.est input:hover{border-color:var(--line-2);background:var(--panel)}
@@ -278,6 +279,7 @@ table.cat .del button:hover{color:var(--danger);background:var(--panel-2)}
 .doc tr{page-break-inside:avoid}
 .doc th{background:#0B2E63;color:#fff;font-size:8pt;text-align:center}
 .doc th.l{text-align:left}
+.doc .m{display:none}
 .doc tr.grp td{background:#2F90DD;color:#fff;font-size:8pt;font-weight:700;text-transform:uppercase}
 .doc tr.on td{background:#DDF1FB}
 .doc td.c{text-align:center;font-size:11pt}
@@ -34102,7 +34104,7 @@ if (typeof module !== 'undefined') module.exports = LNX;
     var flagged = {}; (o.flags || []).forEach(function (f) { flagged[f.sid] = true; });
     var h = '<table class="menu"><thead><tr>';
     selCols.forEach(function (e) { h += '<th class="c" title="' + esc(e.name) + '">' + esc(perE ? LNX.shortName(e.name, e) : 'Select') + '</th>'; });
-    h += '<th>Service</th><th class="r">Band</th><th class="r">Estimated</th></tr></thead><tbody>';
+    h += '<th>Service</th><th class="r range">Band</th><th class="r">Estimated</th></tr></thead><tbody>';
     LNX.groups(p).forEach(function (g) {
       h += '<tr class="grp"><td colspan="' + (selCols.length + 3) + '">' + esc(g.name) + '</td></tr>';
       g.items.forEach(function (s) {
@@ -34172,7 +34174,7 @@ if (typeof module !== 'undefined') module.exports = LNX;
     h += '<p class="intro">' + esc(LNX.introText(p)) + '</p>';
     h += '<h2>SERVICE MENU &amp; SELECTION</h2><table><thead><tr>';
     selCols.forEach(function (e) { h += '<th>' + esc(perE ? LNX.shortName(e.name, e) : 'SELECT') + '</th>'; });
-    h += '<th class="l">SERVICE / DESCRIPTION</th><th>LOW – HIGH PRICING</th><th>ESTIMATED PRICING</th></tr></thead><tbody>';
+    h += '<th class="l">SERVICE / DESCRIPTION</th><th class="m">LOW – HIGH PRICING</th><th>ESTIMATED PRICING</th></tr></thead><tbody>';
     LNX.groups(p).forEach(function (g) {
       h += '<tr class="grp"><td colspan="' + (selCols.length + 3) + '">' + esc(g.name) + '</td></tr>';
       g.items.forEach(function (s) {
