@@ -33804,7 +33804,7 @@ var LNX = (function () {
       pricingMode: 'shared',
       sel: {}, price: {}, eff: {}, extras: [],
       discountMode: 'pct', discountPct: 0, discountAmt: 0, discountLabel: 'Relationship discount',
-      notes: 'All fees in USD, per entity, per month. The Low – High range reflects the available service band; estimated pricing reflects the recommended service level. Additional services may be elected at any time and may adjust the estimated pricing and monthly fee.',
+      notes: 'All fees in USD, per entity, per month. Estimated pricing reflects the recommended service level. Additional services may be elected at any time and may adjust the estimated pricing and monthly fee.',
       log: [], catalog: null,
       createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
       finalizedAt: null, finalizedBy: null, finalDocx: null
@@ -33820,7 +33820,7 @@ var LNX = (function () {
       entities: [{ id: 'e1', name: 'Songs of Spirit, Inc.', short: 'SOS' }, { id: 'e2', name: 'Songs of Spirit UK Ltd.', short: 'SOS UK' }],
       sel: { income: { '*': true }, licensing: { '*': true } },
       eff: { licensing: '2026-09-01', income: '2026-10-01' },
-      notes: 'All fees in USD, per entity, per month. The Low – High range reflects the available service band; estimated pricing reflects the recommended service level for Songs of Spirit. Additional services may be elected at any time and may adjust the estimated pricing and monthly fee.'
+      notes: 'All fees in USD, per entity, per month. Estimated pricing reflects the recommended service level for Songs of Spirit. Additional services may be elected at any time and may adjust the estimated pricing and monthly fee.'
     });
   }
 
@@ -33911,7 +33911,7 @@ var LNX = (function () {
 
   /* ---- document copy ---- */
   function introText(p) {
-    return 'Lyric Nexus is pleased to present the following service proposal. The menu below sets out our full service platform with pricing ranges and estimated fees; recommended services for ' + (p.clientName || 'the client') + ' are pre-selected, and additional services may be elected by checking the box. All fees are quoted per entity, per month. Estimated pricing is based on anticipated time and complexity for financial and accounting services; IP-related services are estimated based on number of copyrights and 12-month estimated new copyrights added to the portfolio.';
+    return 'Lyric Nexus is pleased to present the following service proposal. The menu below sets out our full service platform with estimated fees; recommended services for ' + (p.clientName || 'the client') + ' are pre-selected, and additional services may be elected by checking the box. All fees are quoted per entity, per month. Estimated pricing is based on anticipated time and complexity for financial and accounting services; IP-related services are estimated based on number of copyrights and 12-month estimated new copyrights added to the portfolio.';
   }
   var ABOUT = [
     'Lyric Nexus provides centralized financial, administrative, royalty, copyright, and corporate services purpose-built for music and intellectual-property businesses. We give clients institutional-grade operational support through a single coordinated team — without the fixed cost and management overhead of building those functions in-house.',
